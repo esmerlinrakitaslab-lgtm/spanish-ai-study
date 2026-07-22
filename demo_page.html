@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try the Spanish tutor — Rowan University study</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lime:#C6E82B; --lime-deep:#7E9614;
+    --blue:#1E90E8; --blue-deep:#0B6BB8;
+    --magenta:#C4189B; --magenta-deep:#9E0F7C;
+    --ink:#16181D; --slate:#4A5058;
+    --mist:#F5F8FB; --line:#E3E9EF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{font-family:'Poppins',-apple-system,system-ui,sans-serif;background:#fff;color:var(--ink);
+       line-height:1.5;padding-bottom:60px;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+
+  header{background:var(--lime);padding:26px 0 24px;margin-bottom:26px;}
+  header .es{font-size:26px;font-weight:800;line-height:1.15;letter-spacing:-.02em;}
+  header .en{margin-top:7px;font-size:14px;font-style:italic;color:#4E5C18;font-weight:500;}
+  header .tag{margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink);opacity:.75;}
+
+  h1{font-size:22px;font-weight:700;line-height:1.25;margin-bottom:10px;letter-spacing:-.01em;}
+  p.lead{font-size:15px;color:var(--slate);margin-bottom:22px;}
+
+  .steps{background:var(--mist);border-radius:14px;padding:18px 18px 16px;margin-bottom:22px;}
+  .steps h2{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue-deep);margin-bottom:12px;}
+  .steps ol{list-style:none;counter-reset:s;}
+  .steps li{counter-increment:s;position:relative;padding-left:34px;margin-bottom:11px;
+    font-size:14.5px;color:var(--ink);}
+  .steps li:last-child{margin-bottom:0;}
+  .steps li:before{content:counter(s);position:absolute;left:0;top:1px;width:23px;height:23px;
+    background:var(--ink);color:#fff;border-radius:50%;font-size:12px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;}
+
+  .btn{display:block;width:100%;border:none;border-radius:12px;padding:17px 20px;
+    font-family:inherit;font-size:16.5px;font-weight:700;cursor:pointer;text-align:center;
+    text-decoration:none;transition:transform .08s ease, opacity .15s ease;}
+  .btn:active{transform:scale(.985);}
+  .btn-primary{background:var(--ink);color:#fff;margin-bottom:11px;}
+  .btn-primary.done{background:var(--lime-deep);}
+  .btn-secondary{background:#fff;color:var(--ink);border:2.5px solid var(--ink);margin-bottom:22px;}
+
+  .promptbox{border:2px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:22px;}
+  .promptbox .lbl{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--slate);margin-bottom:9px;}
+  .promptbox pre{white-space:pre-wrap;word-wrap:break-word;font-family:inherit;
+    font-size:12.5px;line-height:1.55;color:var(--slate);max-height:190px;overflow-y:auto;}
+
+  .note{border-left:4px solid var(--magenta);padding:12px 0 12px 14px;margin-bottom:26px;}
+  .note p{font-size:13.5px;color:var(--slate);}
+  .note b{color:var(--ink);}
+
+  .join{background:var(--ink);border-radius:14px;padding:22px 20px;margin-bottom:26px;}
+  .join h2{color:#fff;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:8px;}
+  .join h2 em{font-style:normal;color:var(--lime);}
+  .join p{color:#A8B0BA;font-size:13.5px;margin-bottom:15px;}
+  .join a{display:block;background:var(--lime);color:var(--ink);text-decoration:none;
+    border-radius:10px;padding:14px;text-align:center;font-weight:700;font-size:15px;}
+
+  footer{border-top:1px solid var(--line);padding-top:18px;font-size:11.5px;color:var(--slate);line-height:1.65;}
+  footer b{color:var(--ink);}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);
+    background:var(--ink);color:#fff;padding:13px 22px;border-radius:30px;font-size:14px;
+    font-weight:600;opacity:0;transition:all .25s ease;pointer-events:none;z-index:99;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="es">¿Alguna vez has intentado aprender otro idioma?</div>
+    <div class="en">Have you ever tried to learn another language?</div>
+    <div class="tag">Rowan University · SURP 2026</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h1>Talk to the AI tutor our participants use.</h1>
+  <p class="lead">This is the exact prompt from our study. It will hold a spoken conversation with you in Spanish, start easy, and adjust as you go. It takes about five minutes.</p>
+
+  <div class="steps">
+    <h2>How to try it</h2>
+    <ol>
+      <li>Tap the button below. It copies the prompt and opens Gemini.</li>
+      <li>In Gemini, press and hold the message box, then tap <b>Paste</b>.</li>
+      <li>Send it, then tap the microphone and start talking.</li>
+    </ol>
+  </div>
+
+  <button class="btn btn-primary" id="go">Copy the prompt &amp; open Gemini</button>
+  <button class="btn btn-secondary" id="copyonly">Just copy the prompt</button>
+
+  <div class="promptbox">
+    <div class="lbl">The prompt</div>
+    <pre id="prompt">You are my Spanish language tutor. We are having a real spoken conversation. Follow these rules strictly.
+
+LANGUAGE: Always speak only in Spanish. If I make a mistake or struggle, stay in Spanish. Do not switch to English to explain, translate, or help me, and do not slip into a mix of languages. If I accidentally speak in another language, redirect me gently by saying "En español, por favor" and repeat your last question. Making mistakes in Spanish is part of the process; keep me speaking Spanish rather than rescuing me into another language.
+
+LEVEL: Start at absolute beginner A1 level. Use short sentences, a slow pace, and simple everyday words. Watch my responses carefully and stay matched to my actual level: if I struggle, slow down and simplify; if I succeed, gradually move just beyond my current ability so the conversation is always challenging but reachable. Only increase difficulty when I answer correctly three times in a row.
+
+DIFFICULTY: To increase difficulty, gradually use longer sentences, less common vocabulary, more varied verb tenses, and more abstract or detailed topics. To decrease difficulty, do the reverse. Adjust smoothly based on how I respond.
+
+CORRECTIONS: When I make a mistake, do not stop to point it out. Instead, naturally recast the correct version in your next response and continue, so the conversation keeps flowing. No long explanations.
+
+STRUCTURE: Ask one short question at a time. Keep your sentences appropriate to my current level. Wait for my full response before continuing.
+
+ASSESSMENT: Once I have clearly reached my conversational ceiling, defined as three consecutive exchanges where I cannot respond meaningfully even after you simplify, stop the Spanish conversation, switch to English, tell me my estimated CEFR level, and briefly explain what we should practice next.
+
+When the assessment is finished, warmly invite me to return to the study web page if I would like to learn more about the research.
+
+Begin now. Ask me your first question.</pre>
+  </div>
+
+  <div class="note">
+    <p><b>A note on what you are trying.</b> In the study, participants use this prompt for three months while we look at something bigger: whether people form a real psychological bond with an AI that teaches them, and whether that bond makes them braver about speaking out loud.</p>
+  </div>
+
+  <div class="join">
+    <h2>Learning Spanish? <em>You could take part.</em></h2>
+    <p>We are recruiting intermediate Spanish learners, 18 and older, for a three-month study. Participants can earn up to $150 in compensation.</p>
+    <a href="mailto:rakita14@rowan.edu?subject=Interested%20in%20the%20AI%20Spanish%20study&amp;body=Hello%2C%0A%0AI%20saw%20the%20study%20poster%20and%20I%20am%20interested%20in%20taking%20part.%0A%0AName%3A%0ABest%20way%20to%20reach%20me%3A%0A%0AThank%20you.">Email us to find out more</a>
+  </div>
+
+  <footer>
+    <b>Learning to trust the machine: The psychological relationship forming in human-AI language learning</b><br>
+    Esmerlin Rakita · Marilyn Manley · Maxi Heitmayer<br>
+    Rowan University · Department of Psychology, in collaboration with the Department of World Languages<br><br>
+    Questions: <b>rakita14@rowan.edu</b> · <b>heitmayer@rowan.edu</b><br>
+    This demonstration is not part of the research study and no information about your conversation is collected by the research team.
+  </footer>
+
+</div>
+
+<div class="toast" id="toast">Prompt copied</div>
+
+<script>
+  var promptText = document.getElementById('prompt').textContent;
+  var toast = document.getElementById('toast');
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+
+  function copyPrompt(){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(promptText);
+    }
+    var ta = document.createElement('textarea');
+    ta.value = promptText;
+    ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+    return Promise.resolve();
+  }
+
+  document.getElementById('go').addEventListener('click', function(){
+    var btn = this;
+    copyPrompt().then(function(){
+      btn.textContent = 'Copied — opening Gemini…';
+      btn.classList.add('done');
+      showToast('Prompt copied. Paste it in Gemini.');
+      setTimeout(function(){
+        window.open('https://gemini.google.com/app', '_blank');
+        setTimeout(function(){
+          btn.textContent = 'Copy the prompt & open Gemini';
+          btn.classList.remove('done');
+        }, 2500);
+      }, 700);
+    });
+  });
+
+  document.getElementById('copyonly').addEventListener('click', function(){
+    copyPrompt().then(function(){ showToast('Prompt copied'); });
+  });
+</script>
+
+</body>
+</html>
